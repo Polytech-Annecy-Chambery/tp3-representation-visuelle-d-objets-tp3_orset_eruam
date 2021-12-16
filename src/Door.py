@@ -94,10 +94,12 @@ class Door:
     def processPygameUserEvent(self):
         # Gets the model view matrix    
         modelViewMatrix = gl.glGetDoublev(gl.GL_MODELVIEW_MATRIX)
-        
+        print("1")
+
         # Checks if the USER event is received
         if pygame.event.peek(pygame.USEREVENT):
             # Gets the events and recovers the window coordinates from the first one
+            print("10")
             event = pygame.event.get(pygame.USEREVENT)
             winX = event[0].dict['winX']
             winY = event[0].dict['winY']
@@ -134,6 +136,7 @@ class Door:
         if self.getParameter('openDoor') == True:         
             gl.glRotate(-90, 0, 0, 1)  
             
+
         # Processes the Pygrame USER event
         self.processPygameUserEvent()
         

@@ -19,8 +19,8 @@ def Q1a():
     
 def Q1b_f():
     return Configuration({'screenPosition': -5, 'xAxisColor': [1, 0, 0]}). \
-        setParameter('xAxisColor', [1, 0, 0]). \
-        setParameter('yAxisColor', [0,1,0])
+        setParameter('xAxisColor', [1, 1, 0]). \
+        setParameter('yAxisColor', [0,1,1])
         
 def Q2b():
     # Ecriture en utilisant le chaînage
@@ -48,7 +48,7 @@ def Q4a():
     house = House({'position': [0, 0, 0], 'orientation':0})
 
     house = House({'position': [-3, 1, 0], 'orientation':0})
-    #◘house.add(wall1).add(wall3).add(wall4).add(wall2)
+    house.add(wall1).add(wall3).add(wall4).add(wall2)
     return Configuration().add(house)   
     
 def Q5a():  
@@ -99,7 +99,7 @@ def Q6():
     wall1 = Wall({'position': [0, 0, 0], 'width':7, 'height':2.6, 'orientation':0,'color':[0.7,0.7,0.7]})
     wall1.add(Door({'position':[2,0,0],'width':0.9, 'height':2.15,'color': [0.7, 0.2, 0]}))
     wall1.add(Window({'position': [4, 0, 1.2], 'width':1.25, 'height':1, 'thickness':0.2, 'color': [0.7, 0.2, 0]}))
-    configuration = Configuration().add(wall1)
+    configuration = Configuration().add(wall1).add(Door({'position':[2,0,0],'width':0.9, 'height':2.15,'color': [0.7, 0.2, 0]})).add(Window({'position': [4, 0, 1.2], 'width':1.25, 'height':1, 'thickness':0.2, 'color': [0.1, 0, 0.6]}))
     return configuration
 
  

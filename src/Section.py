@@ -98,7 +98,8 @@ class Section:
                                 'thickness':self.parameters['thickness'],\
                                 'orientation':self.parameters['orientation'],\
                                 'color':self.parameters['color']})
-            resSections.append(section1)
+            if section1.getParameter('height') != 0 and section1.getParameter('width') != 0:
+                resSections.append(section1)
             
             section2 = Section({'position':[x.parameters['position'][0],x.parameters['position'][1],x.parameters['position'][2]+x.parameters['height']],\
                                 'width':x.parameters['width'],\
@@ -106,7 +107,8 @@ class Section:
                                 'thickness':self.parameters['thickness'],\
                                 'orientation':self.parameters['orientation'],\
                                 'color':self.parameters['color']})
-            resSections.append(section2)
+            if section2.getParameter('height') != 0 and section2.getParameter('width') != 0:
+                resSections.append(section2)
             
             section3 = Section({'position':[x.parameters['position'][0],x.parameters['position'][1],self.parameters['position'][2]],\
                                 'width': x.parameters['width'],\
@@ -114,16 +116,21 @@ class Section:
                                 'thickness': self.parameters['thickness'],\
                                 'orientation': self.parameters['orientation'],\
                                 'color': self.parameters['color']})
-            resSections.append(section3)
+            if section3.getParameter('height') != 0 and section3.getParameter('width') != 0:
+                resSections.append(section3)
             
             section4 = Section({'position':[x.parameters['position'][0]+x.parameters['width'],self.parameters['position'][1],self.parameters['position'][2]],\
-                                'width':self.parameters['position'][0]+self.parameters['width'] - x.parameters['position'][0]+x.parameters['width'],\
+                                'width':self.parameters['position'][0]+self.parameters['width'] - (x.parameters['position'][0]+x.parameters['width']),\
                                 'height':self.parameters['height'],\
                                 'thickness':self.parameters['thickness'],\
                                 'orientation':self.parameters['orientation'],\
                                 'color':self.parameters['color']})
-           
-            resSections.append(section4)
+            if section4.getParameter('height') != 0 and section4.getParameter('width') != 0:
+                print(section4.getParameter('width'))
+                print(self.parameters['position'][0]+self.parameters['width'])
+                print(x.parameters['position'][0]+x.parameters['width'])
+                resSections.append(section4)
+                
         return resSections
 
 
